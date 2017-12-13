@@ -65,11 +65,32 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var CountryDropdownView = __webpack_require__(1);
+
+var app = function() {
+	var countries = new CountryDropdownView("Hiya");
+}
+
+window.addEventListener("load", app);
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
-window.addEventListener("load", function(){
-	alert("Loaded!");
-});
+var CountryDropdownView = function(countries) {
+  this.render(countries);
+}
+
+CountryDropdownView.prototype = {
+  render: function(countries) {
+    console.log(countries);
+  }
+}
+
+module.exports = CountryDropdownView;
 
 
 /***/ })
