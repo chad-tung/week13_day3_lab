@@ -43,5 +43,10 @@ app.post("/add_country/:country/:capital/:region/:lat/:lng/", function(req, res)
 
 		console.log("Saved to database.");
 		res.redirect("/");
-	})
+	});
 })
+
+app.post("/delete/:id", function(req, res) {
+  db.collection("countries_to_visit").deleteOne({"_id": ObjectId(req.params.id)});
+  res.redirect("/")
+});

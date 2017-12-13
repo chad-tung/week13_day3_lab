@@ -121,7 +121,7 @@ var populateBucket = function() {
 		if (this.status !== 200) return;
 		var countries = JSON.parse(this.responseText);
 		var ui = new BucketListView(countries);
-	})
+	});
 }
 
 
@@ -188,9 +188,23 @@ bucketListView.prototype = {
     var regionP= document.createElement('p');
       regionP.innerText = country.region;
       li.appendChild(regionP);
+
+    var button = buildDeleteButton(country._id);
+    li.appendChild(button);
       ul.appendChild(li);
     })
   }
+};
+
+var buildDeleteButton = function(countryID) {
+  var deleteForm = document.createElement("form");
+  deleteForm.method = "POST";
+  deleteForm.action = "/delete/" + countryID;
+  var deleteButton = document.createElement('button');
+  deleteButton.className = "delete-button";
+  deleteButton.innerText = "X";
+  deleteForm.appendChild(deleteButton);
+  return deleteForm;
 };
 
 
