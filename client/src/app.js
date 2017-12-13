@@ -31,8 +31,18 @@ var listenSelect = function(countries) {
 	select.addEventListener('change', function() {
 
 		var country = countries[select.selectedIndex - 1];
-		form.action = `/add_country/${country.name}/${country.capital}/${country.region}/${country.latlng[0]}/${country.latlng[1]}`;
-    
+		var capital = country.capital;
+		var region = country.region;
+
+		if (capital == "") {
+			capital = "none";
+		}
+
+		if (region == ""){
+			region = "none";
+		}
+		form.action = `/add_country/${country.name}/${capital}/${country.region}/${country.latlng[0]}/${country.latlng[1]}`;
+
 	})
 }
 

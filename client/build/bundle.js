@@ -98,8 +98,20 @@ var listenSelect = function(countries) {
 	var form = document.getElementById('country-form');
 
 	select.addEventListener('change', function() {
+
 		var country = countries[select.selectedIndex - 1];
-		form.action = `/add_country/${country.name}/${country.capital}/${country.region}/${country.latlng[0]}/${country.latlng[1]}`;
+		var capital = country.capital;
+		var region = country.region;
+
+		if (capital == "") {
+			capital = "none";
+		}
+
+		if (region == ""){
+			region = "none";
+		}
+		form.action = `/add_country/${country.name}/${capital}/${country.region}/${country.latlng[0]}/${country.latlng[1]}`;
+
 	})
 }
 
@@ -146,33 +158,7 @@ module.exports = CountryDropdownView;
 /* 2 */
 /***/ (function(module, exports) {
 
-var bucketListView = function(countries){
-  this.render(countries)
-};
-
-bucketListView.prototype = {
-  render: function(countries) {
-  countries.forEach(function(country){
-    var ul = document.getElementById('bucket-list')
-    var li = document.createElement('li');
-    var nameP = document.createElement('p');
-      nameP.innerText = country.name;
-      li.appendChild(nameP);
-    var capitalP = document.createElement('p');
-      capitalP.innerText = country.capital;
-      li.appendChild(capitalP);
-    var regionP= document.createElement('p');
-      regionP.innerText = country.region;
-      li.appendChild(regionP);
-
-      ul.appendChild(li);
-    })
-  }
-};
-
-
-module.exports = bucketListView;
-
+throw new Error("Module parse failed: Unexpected character '“' (1:21)\nYou may need an appropriate loader to handle this file type.\n| MapWrapper = require(“/mapWrapper.js”)\n| var bucketListView = function(countries){\n|   this.render(countries)");
 
 /***/ })
 /******/ ]);
