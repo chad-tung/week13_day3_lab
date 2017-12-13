@@ -90,14 +90,16 @@ var requestComplete = function() {
 	var countries = JSON.parse(jsonString);
 	console.log(countries);
 	var countryList = new CountryDropdownView(countries);
-	listenSelect();
+	listenSelect(countries);
 }
 
-var listenSelect = function() {
+var listenSelect = function(countries) {
 	var select = document.getElementById('country-selector');
 	var form = document.getElementById('country-form');
+
 	select.addEventListener('change', function() {
-		form.action = "/add_country/" + select.value;
+		var country = countries[select.selectedIndex - 1];
+		form.action = `/add_country/${country.name}/${country.capital}/${country.region}/${country.latlng[0]}/${country.latlng[1]}`;
 	})
 }
 
@@ -144,27 +146,3 @@ module.exports = CountryDropdownView;
 /* 2 */
 /***/ (function(module, exports) {
 
-var bucketListView = function(countries){
-  this.render(countries)
-};
-
-bucketListView.prototype = {
-  render: function(countries) {
-  countries.forEach(function(country){
-    var ul = document.getElementById('bucket-list')
-    var li = document.createElement('li');
-    var details = document.createElement('p');      
-      details.innerText = country.name;
-      li.appendChild(details);
-      ul.appendChild(li);
-    })
-  }
-};
-
-
-module.exports = bucketListView;
-
-
-/***/ })
-/******/ ]);
-//# sourceMappingURL=bundle.js.map
