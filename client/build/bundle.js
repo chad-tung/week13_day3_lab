@@ -87,7 +87,7 @@ var requestComplete = function() {
 	var jsonString = this.responseText;
 	var countries = JSON.parse(jsonString);
 	console.log(countries);
-	var countries = new CountryDropdownView(countries);
+	var countryList = new CountryDropdownView(countries);
 }
 
 window.addEventListener("load", app);
@@ -97,7 +97,23 @@ window.addEventListener("load", app);
 /* 1 */
 /***/ (function(module, exports) {
 
-throw new Error("Module parse failed: Unexpected token (8:31)\nYou may need an appropriate loader to handle this file type.\n|   render: function(countries) {\n|     var select = document.getElementById(\"country-selector\");\n|     countries.forEach(country) {\n|       var option = document.createElement('option');\n|       option.innerText = country.name;");
+var CountryDropdownView = function(countries) {
+  this.render(countries);
+}
+
+CountryDropdownView.prototype = {
+  render: function(countries) {
+    var select = document.getElementById("country-selector");
+    countries.forEach(function(country) {
+      var option = document.createElement('option');
+      option.innerText = country.name;
+      select.appendChild(option);
+    })
+  }
+}
+
+module.exports = CountryDropdownView;
+
 
 /***/ })
 /******/ ]);

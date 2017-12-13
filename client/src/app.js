@@ -18,7 +18,7 @@ var requestComplete = function() {
 	var jsonString = this.responseText;
 	var countries = JSON.parse(jsonString);
 	console.log(countries);
-	var countries = new CountryDropdownView(countries);
+	var countryList = new CountryDropdownView(countries);
 }
 
 window.addEventListener("load", app);
