@@ -1,0 +1,56 @@
+* {
+   font-family: 'Open Sans', sans-serif;
+}
+
+#main-map {
+   height: 250px;
+   width: 250px;
+}
+
+h1 {
+   color: #3677ba;
+   font-size: 19pt;
+   text-align: center;
+}
+
+h2 {
+   font-size: 9pt;
+   text-align: center;
+}
+
+form {
+   text-align: center;
+}
+
+ul {
+   list-style: none;
+   padding: 0px;
+}
+
+li {
+   width: 500px;
+   min-height: 40px;
+   background: #f2f2f2;
+   border-radius: 3px;
+   border: 1px solid grey;
+   margin-bottom: 15px;
+   padding: 10px;
+}
+
+li:hover {
+   background: #d6d6d6;
+}
+
+body {
+   display: flex;
+   justify-content: center;
+}
+
+main {
+   display: inline-block;
+   align-items: center;
+}
+
+#header, #chosen-countries {
+   min-width: 550px;
+}
