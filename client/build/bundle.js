@@ -96,8 +96,10 @@ var requestComplete = function() {
 var listenSelect = function(countries) {
 	var select = document.getElementById('country-selector');
 	var form = document.getElementById('country-form');
+
 	select.addEventListener('change', function() {
-		form.action = "/add_country/" + countries[select.selectedIndex - 1];
+		var country = countries[select.selectedIndex - 1];
+		form.action = `/add_country/${country.name}/${country.capital}/${country.region}/${country.latlng[0]}/${country.latlng[1]}`;
 	})
 }
 
