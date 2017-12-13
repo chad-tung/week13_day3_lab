@@ -29,8 +29,10 @@ var listenSelect = function(countries) {
 	var form = document.getElementById('country-form');
 
 	select.addEventListener('change', function() {
+
 		var country = countries[select.selectedIndex - 1];
 		form.action = `/add_country/${country.name}/${country.capital}/${country.region}/${country.latlng[0]}/${country.latlng[1]}`;
+    
 	})
 }
 
