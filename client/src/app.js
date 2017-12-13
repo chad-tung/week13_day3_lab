@@ -21,14 +21,14 @@ var requestComplete = function() {
 	var countries = JSON.parse(jsonString);
 	console.log(countries);
 	var countryList = new CountryDropdownView(countries);
-	listenSelect();
+	listenSelect(countries);
 }
 
-var listenSelect = function() {
+var listenSelect = function(countries) {
 	var select = document.getElementById('country-selector');
 	var form = document.getElementById('country-form');
 	select.addEventListener('change', function() {
-		form.action = "/add_country/" + select.value;
+		form.action = "/add_country/" + countries[select.selectedIndex - 1];
 	})
 }
 
