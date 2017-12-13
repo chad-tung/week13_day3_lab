@@ -34,8 +34,8 @@ app.get('/countries', function(req, res){
   });
 })
 
-app.post("/add_country/:name", function(req, res) {
-	db.collection("countries_to_visit").save({name: req.params.name}, function(err, result) {
+app.post("/add_country/:country/:capital/:region/:lat/:lng/", function(req, res) {
+	db.collection("countries_to_visit").save({name: req.params.country, capital: req.params.capital, region: req.params.region, latlng: [req.params.lat, req.params.lng]}, function(err, result) {
 		if(err) {
 			return console.log(err);
 		}
