@@ -10,16 +10,36 @@
 	<title>Bucket List</title>
 </head>
 <body>
-<h1>Bucket List</h1>
-<h2>Select a Country:</h2>
-<select id="country-selector"></select>
-<h2>Countries I want to visit:</h2>
-<div id="chosen-countries">
-  <ul id="bucket-list">
+	<h1>Bucket List</h1>
+	<h2>Select a Country:</h2>
+	<form id="country-form" action="/add_country" method="POST">
+		<select id="country-selector"></select>
+		<button type="submit">Submit</button>
+	</form>
 
-  </ul>
+	<h2>Countries I want to visit:</h2>
+	<div id="chosen-countries">
+		<ul id="bucket-list">
 
+		</ul>
+	</div>
 
 
 </body>
 </html>
+
+
+<!-- <select id="dropdown" name="country-dropdown" onmousedown="this.value='';" onchange="menuChange(this.value);">
+  <option disabled selected>Choose a List</option>
+
+</select>
+
+var menuChange = function(value){
+   console.log(value);
+   for(var country of countries){
+      if(country.name === value){
+         populate(country);
+         save(country);
+            };
+   }
+} -->
