@@ -13,14 +13,15 @@
 	<h1>Bucket List</h1>
 	<h2>Select a Country:</h2>
 	<form id="country-form" action="/add_country" method="POST">
-		<select id="country-selector"></select>
+		<select id="country-selector">
+			<option disabled selected>Choose a country</option>
+		</select>
 		<button type="submit">Submit</button>
 	</form>
 
 	<h2>Countries I want to visit:</h2>
 	<div id="chosen-countries">
 		<ul id="bucket-list">
-
 		</ul>
 	</div>
 

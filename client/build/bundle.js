@@ -68,10 +68,12 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 var CountryDropdownView = __webpack_require__(1);
+var BucketListView = __webpack_require__(2);
 
 var app = function() {
 	var url = "https://restcountries.eu/rest/v2/all";
 	// var countries = new CountryDropdownView("Hiya");
+	populateBucket();
 	makeRequest(url, requestComplete);
 };
 
@@ -88,14 +90,30 @@ var requestComplete = function() {
 	var countries = JSON.parse(jsonString);
 	console.log(countries);
 	var countryList = new CountryDropdownView(countries);
+	listenSelect();
+}
 
+var listenSelect = function() {
 	var select = document.getElementById('country-selector');
 	var form = document.getElementById('country-form');
 	select.addEventListener('change', function() {
 		form.action = "/add_country/" + select.value;
 	})
-
 }
+
+var populateBucket = function() {
+	var url = "/countries"
+	makeRequest(url, function() {
+		if (this.status !== 200) return;
+		var countries = JSON.parse(this.responseText);
+		var ui = new BucketListView(countries);
+	})
+}
+
+
+
+
+
 
 window.addEventListener("load", app);
 
@@ -120,6 +138,31 @@ CountryDropdownView.prototype = {
 }
 
 module.exports = CountryDropdownView;
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+var bucketListView = function(countries){
+  this.render(countries)
+};
+
+bucketListView.prototype = {
+  render: function(countries) {
+  countries.forEach(function(country){
+    var ul = document.getElementById('bucket-list')
+    var li = document.createElement('li');
+    var details = document.createElement('p');      
+      details.innerText = country.name;
+      li.appendChild(details);
+      ul.appendChild(li);
+    })
+  }
+};
+
+
+module.exports = bucketListView;
 
 
 /***/ })
