@@ -7,9 +7,16 @@ bucketListView.prototype = {
   countries.forEach(function(country){
     var ul = document.getElementById('bucket-list')
     var li = document.createElement('li');
-    var details = document.createElement('p');      
-      details.innerText = country.name;
-      li.appendChild(details);
+    var nameP = document.createElement('p');
+      nameP.innerText = country.name;
+      li.appendChild(nameP);
+    var capitalP = document.createElement('p');
+      capitalP.innerText = country.capital;
+      li.appendChild(capitalP);
+    var regionP= document.createElement('p');
+      regionP.innerText = country.region;
+      li.appendChild(regionP);
+
       ul.appendChild(li);
     })
   }
