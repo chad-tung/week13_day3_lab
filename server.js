@@ -24,3 +24,23 @@ MongoClient.connect('mongodb://localhost:27017/bucketlist', function(err, client
 app.get("/", function(req, res){
 	res.sendFile(__dirname + "/client/build/index.html");
 });
+
+app.get('/countries', function(req, res){
+  db.collection("countries_to_visit").find().toArray(function(err, results) {
+    if(err) {
+      console.log(err);
+    }
+    res.json(results);
+  });
+})
+
+app.post("/add_country", function(req, res) {
+	db.collection("countries_to_visit").save(req.body, function(err, result) {
+		if(err) {
+			return console.log(err);
+		}
+
+		console.log("Saved to database.");
+		res.redirect("/");
+	})
+})
