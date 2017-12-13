@@ -19,6 +19,13 @@ var requestComplete = function() {
 	var countries = JSON.parse(jsonString);
 	console.log(countries);
 	var countryList = new CountryDropdownView(countries);
+
+	var select = document.getElementById('country-selector');
+	var form = document.getElementById('country-form');
+	select.addEventListener('change', function() {
+		form.action = "/add_country/" + select.value;
+	})
+
 }
 
 window.addEventListener("load", app);
