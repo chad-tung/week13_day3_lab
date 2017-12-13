@@ -144,26 +144,7 @@ module.exports = CountryDropdownView;
 /* 2 */
 /***/ (function(module, exports) {
 
-var bucketListView = function(countries){
-  this.render(countries)
-};
-
-bucketListView.prototype = {
-  render: function(countries) {
-  countries.forEach(function(country){
-    var ul = document.getElementById('bucket-list')
-    var li = document.createElement('li');
-    var details = document.createElement('p');      
-      details.innerText = country.name;
-      li.appendChild(details);
-      ul.appendChild(li);
-    })
-  }
-};
-
-
-module.exports = bucketListView;
-
+throw new Error("Module parse failed: Unexpected token (11:25)\nYou may need an appropriate loader to handle this file type.\n|     var ul = document.getElementById('bucket-list')\n|     var li = document.createElement('li');\n|     var center = {country.latlng[0], country.latlng[1]}\n|     var map = document.createElement(\"main-map\")\n|     map = new MapWrapper(mapDiv, center, 2);");
 
 /***/ })
 /******/ ]);
