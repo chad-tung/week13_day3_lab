@@ -52,7 +52,7 @@ var populateBucket = function() {
 		if (this.status !== 200) return;
 		var countries = JSON.parse(this.responseText);
 		var ui = new BucketListView(countries);
-	})
+	});
 }
 
 
