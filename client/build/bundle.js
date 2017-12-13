@@ -158,8 +158,4 @@ module.exports = CountryDropdownView;
 /* 2 */
 /***/ (function(module, exports) {
 
-throw new Error("Module parse failed: Unexpected character '“' (1:21)\nYou may need an appropriate loader to handle this file type.\n| MapWrapper = require(“/mapWrapper.js”)\n| var bucketListView = function(countries){\n|   this.render(countries)");
 
-/***/ })
-/******/ ]);
-//# sourceMappingURL=bundle.js.map
